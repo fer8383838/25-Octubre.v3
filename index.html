@@ -19,7 +19,6 @@ main{position:relative;isolation:isolate;max-width:1040px;min-height:100dvh;marg
 .eyebrow{font-size:10px;font-weight:750;letter-spacing:.34em;text-transform:uppercase;color:#b46887}
 h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(39px,7.4vw,69px);font-weight:400;line-height:1.1;letter-spacing:-.045em;margin:15px 0 10px}
 h1 em{color:#bc6189;font-weight:400}
-.subtitle{font-size:clamp(13px,2.5vw,16px);color:#947c87;line-height:1.65;margin:0}
 .scene-shell{position:relative;width:100%;height:clamp(420px,60vh,630px);min-height:420px;margin-top:2px;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;overflow:hidden;border-radius:22px}
 .scene-shell.dragging{cursor:grabbing}
 #scene{display:block;width:100%;height:100%;touch-action:none;outline:none}
@@ -27,13 +26,10 @@ h1 em{color:#bc6189;font-weight:400}
 .float{position:absolute;pointer-events:none;color:#d28aab;opacity:.65;font-size:clamp(18px,4vw,30px);font-family:Georgia,serif;filter:drop-shadow(0 1px 4px #fff);animation:drift 7s ease-in-out infinite alternate}
 .f1{left:4%;top:24%}.f2{right:7%;top:17%;animation-delay:-3s}.f3{left:10%;bottom:21%;font-size:18px;animation-delay:-5s}.f4{right:10%;bottom:22%;font-size:15px;animation-delay:-2s}
 @keyframes drift{to{transform:translateY(-16px) rotate(13deg)}}
-.interaction{position:relative;z-index:2;margin:-10px 0 0;padding:10px 18px;border:1px solid #dfb8c9;background:#fffdfcda;box-shadow:0 7px 25px #ab648115;border-radius:50px;color:#ad6080;font-weight:700;font-size:12px;letter-spacing:.015em;text-align:center;pointer-events:none}
-.interaction svg{vertical-align:-3px;margin-right:6px}
 .message{text-align:center;margin:21px auto 0;max-width:680px;position:relative}
 .message .quote{font:italic clamp(23px,4vw,34px)/1.35 Georgia,"Times New Roman",serif;color:#a55777;margin:0}
 .message .closing{margin:16px 0 0;color:#a88c98;letter-spacing:.18em;font-size:10px;text-transform:uppercase;font-weight:700}
-.support{text-align:center;margin:16px auto 0;color:#a68b95;font-size:11px;line-height:1.6}
-@media(max-width:600px){main{padding:28px 9px 32px}.scene-shell{height:clamp(425px,58vh,550px);margin-top:-4px}.interaction{margin-top:-18px;font-size:11px}.message{margin-top:26px;padding:0 14px}.subtitle{padding:0 10px}.f1{left:4%;top:30%}.f2{right:5%;top:24%}}
+@media(max-width:600px){main{padding:28px 9px 32px}.scene-shell{height:clamp(425px,58vh,550px);margin-top:-4px}.message{margin-top:26px;padding:0 14px}.f1{left:4%;top:30%}.f2{right:5%;top:24%}}
 @media(prefers-reduced-motion:reduce){.float{animation:none}}
 </style>
 </head>
@@ -42,15 +38,12 @@ h1 em{color:#bc6189;font-weight:400}
 <header class="header">
 <div class="eyebrow">UN REGALO HECHO CON CARIÑO</div>
 <h1>Un detalle <em>para ti.</em></h1>
-<p class="subtitle">Un poquito de color, mucha magia y una promesa especial.</p>
 </header>
 <div class="scene-shell" id="shell" aria-label="Maquillaje dentro de una caja rosa tridimensional. Desliza para girar la escena libremente en cualquier dirección.">
 <canvas id="scene" role="img" aria-label="Caja rosa con tapa abierta a un lado, cosméticos tridimensionales, y una tarjeta romántica"></canvas>
 <span class="float f1" aria-hidden="true">♡</span><span class="float f2" aria-hidden="true">✧</span><span class="float f3" aria-hidden="true">✦</span><span class="float f4" aria-hidden="true">♡</span>
 </div>
-<p class="interaction"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3L5 6l3 3M5 6h8a5 5 0 015 5v2M16 21l3-3-3-3m3 3h-8a5 5 0 01-5-5v-2"/></svg>DESLIZA CON EL DEDO O EL MOUSE · GIRO LIBRE 360°</p>
 <section class="message" aria-label="Dedicatoria"><p class="quote">“Mientras yo esté aquí, tú no serás espectadora.”</p><p class="closing">para que siempre seas protagonista ♡</p></section>
-<p class="support">Una sola página HTML · Gira hacia cualquier lado, sin límite de vueltas</p>
 </main>
 <script>
 /*
@@ -133,8 +126,8 @@ partBox(0,.63,D/2+.123,.99,.31,.02,c.shell);
 partBox(0,.63,D/2+.142,.94,.25,.015,c.ivory);
 // Beaded studs on front
 for(let x of [-2.27,2.27])for(let y of [.34,.95])ball(x,y,D/2+.08,.044,.044,.042,c.goldL);
-// Lid: full volumetric matching slab rested to the left, propped open, decorated both sides
-enter(-3.15,1.13,-.72,20,-20,25);
+// Lid elevated and shifted left to avoid intersecting cosmetics
+enter(-3.36,1.68,-.84,20,-20,25);
 bevelBox(4.96,.20,2.90,.15,c.rose);
 partBox(0,.119,0,4.66,.038,2.60,c.goldL);
 bevel(0,.153,0,4.43,.048,2.36,.15,c.ivory);
@@ -267,7 +260,7 @@ gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.CULL_FACE);gl.cle
 function perspective(fov,aspect,near,far){const s=1/Math.tan(fov/2),t=1/(near-far);return [s/aspect,0,0,0,0,s,0,0,0,0,(far+near)*t,-1,0,0,2*far*near*t,0]}
 function mm(a,b){let r=new Array(16).fill(0);for(let j=0;j<4;j++)for(let i=0;i<4;i++)for(let k=0;k<4;k++)r[i+j*4]+=a[i+k*4]*b[k+j*4];return r}
 function quaternion(axis,angle){let l=Math.hypot(...axis)||1,s=Math.sin(angle/2)/l;return [axis[0]*s,axis[1]*s,axis[2]*s,Math.cos(angle/2)]}
-function qmul(a,b){return [a[3]*b[0]+a[0]*b[3]+a[1]*b[2]-a[2]*b[1],a[3]*b[1]-a[0]*b[2]+a[1]*b[3]+a[2]*b[0],a[3]*b[2]+a[0]*b[1]-a[1]*b[0]+a[2]*b[3],a[3]*b[3]-a[0]*b[0]-a[1]*b[1]-a[2]*b[2],a[3]*b[3]-a[0]*b[0]-a[1]*b[1]-a[2]*b[2]]}
+function qmul(a,b){return [a[3]*b[0]+a[0]*b[3]+a[1]*b[2]-a[2]*b[1],a[3]*b[1]-a[0]*b[2]+a[1]*b[3]+a[2]*b[0],a[3]*b[2]+a[0]*b[1]-a[1]*b[0]+a[2]*b[3],a[3]*b[3]-a[0]*b[0]-a[1]*b[1]-a[2]*b[2]]}
 function qmat(q){const [x,y,z,w]=q,x2=x+x,y2=y+y,z2=z+z,xx=x*x2,yy=y*y2,zz=z*z2,xy=x*y2,xz=x*z2,yz=y*z2,wx=w*x2,wy=w*y2,wz=w*z2;return [1-yy-zz,xy+wz,xz-wy,0,xy-wz,1-xx-zz,yz+wx,0,xz+wy,yz-wx,1-xx-yy,0,0,0,0,1]}
 let rotation=qmul(quaternion([1,0,0],.56),quaternion([0,1,0],-.28));
 let dragging=false,lastX=0,lastY=0,vx=0,vy=0,auto=.00012,lastT=0,scale=1;
@@ -297,5 +290,5 @@ if(dragging||Math.abs(vx)+Math.abs(vy)>.014)schedule()}
 schedule();
 })();
 </script>
-</body></html>
-
+</body>
+</html>
