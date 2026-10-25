@@ -1,1 +1,301 @@
 
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f9ebf1">
+<meta name="description" content="Un pequeño regalo de maquillaje en 3D, hecho con cariño.">
+<title>Para ti ♡ | Tu Beauty Box en 3D</title>
+<style>
+:root{color-scheme:light;--rose:#b45b80;--plum:#603447;--muted:#947a86}
+*,*::before,*::after{box-sizing:border-box}
+html{min-height:100%;background:#f8e9f0}
+body{margin:0;min-height:100dvh;overflow-x:hidden;color:var(--plum);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+background:radial-gradient(ellipse 700px 630px at 51% 56%,#fffdfb 7%,#fff4f7 58%,transparent 100%),linear-gradient(145deg,#fffaf8 0%,#fce8f0 55%,#f1cadc 100%)}
+body:before{content:"";pointer-events:none;position:fixed;inset:0;opacity:.5;background-image:radial-gradient(#d99fb6 1px,transparent 1px);background-size:110px 110px;mask-image:linear-gradient(transparent,#000 45%,transparent 100%)}
+main{position:relative;isolation:isolate;max-width:1040px;min-height:100dvh;margin:auto;padding:35px 16px 34px;display:flex;flex-direction:column;align-items:center}
+.header{text-align:center;position:relative;z-index:2}
+.eyebrow{font-size:10px;font-weight:750;letter-spacing:.34em;text-transform:uppercase;color:#b46887}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(39px,7.4vw,69px);font-weight:400;line-height:1.1;letter-spacing:-.045em;margin:15px 0 10px}
+h1 em{color:#bc6189;font-weight:400}
+.subtitle{font-size:clamp(13px,2.5vw,16px);color:#947c87;line-height:1.65;margin:0}
+.scene-shell{position:relative;width:100%;height:clamp(420px,60vh,630px);min-height:420px;margin-top:2px;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;overflow:hidden;border-radius:22px}
+.scene-shell.dragging{cursor:grabbing}
+#scene{display:block;width:100%;height:100%;touch-action:none;outline:none}
+.scene-shell:before{position:absolute;content:"";pointer-events:none;inset:1% 1% 0%;border-radius:50%;background:radial-gradient(ellipse closest-side at 50% 79%,#d89bb621,transparent 78%)}
+.float{position:absolute;pointer-events:none;color:#d28aab;opacity:.65;font-size:clamp(18px,4vw,30px);font-family:Georgia,serif;filter:drop-shadow(0 1px 4px #fff);animation:drift 7s ease-in-out infinite alternate}
+.f1{left:4%;top:24%}.f2{right:7%;top:17%;animation-delay:-3s}.f3{left:10%;bottom:21%;font-size:18px;animation-delay:-5s}.f4{right:10%;bottom:22%;font-size:15px;animation-delay:-2s}
+@keyframes drift{to{transform:translateY(-16px) rotate(13deg)}}
+.interaction{position:relative;z-index:2;margin:-10px 0 0;padding:10px 18px;border:1px solid #dfb8c9;background:#fffdfcda;box-shadow:0 7px 25px #ab648115;border-radius:50px;color:#ad6080;font-weight:700;font-size:12px;letter-spacing:.015em;text-align:center;pointer-events:none}
+.interaction svg{vertical-align:-3px;margin-right:6px}
+.message{text-align:center;margin:21px auto 0;max-width:680px;position:relative}
+.message .quote{font:italic clamp(23px,4vw,34px)/1.35 Georgia,"Times New Roman",serif;color:#a55777;margin:0}
+.message .closing{margin:16px 0 0;color:#a88c98;letter-spacing:.18em;font-size:10px;text-transform:uppercase;font-weight:700}
+.support{text-align:center;margin:16px auto 0;color:#a68b95;font-size:11px;line-height:1.6}
+@media(max-width:600px){main{padding:28px 9px 32px}.scene-shell{height:clamp(425px,58vh,550px);margin-top:-4px}.interaction{margin-top:-18px;font-size:11px}.message{margin-top:26px;padding:0 14px}.subtitle{padding:0 10px}.f1{left:4%;top:30%}.f2{right:5%;top:24%}}
+@media(prefers-reduced-motion:reduce){.float{animation:none}}
+</style>
+</head>
+<body>
+<main>
+<header class="header">
+<div class="eyebrow">UN REGALO HECHO CON CARIÑO</div>
+<h1>Un detalle <em>para ti.</em></h1>
+<p class="subtitle">Un poquito de color, mucha magia y una promesa especial.</p>
+</header>
+<div class="scene-shell" id="shell" aria-label="Maquillaje dentro de una caja rosa tridimensional. Desliza para girar la escena libremente en cualquier dirección.">
+<canvas id="scene" role="img" aria-label="Caja rosa con tapa abierta a un lado, cosméticos tridimensionales, y una tarjeta romántica"></canvas>
+<span class="float f1" aria-hidden="true">♡</span><span class="float f2" aria-hidden="true">✧</span><span class="float f3" aria-hidden="true">✦</span><span class="float f4" aria-hidden="true">♡</span>
+</div>
+<p class="interaction"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3L5 6l3 3M5 6h8a5 5 0 015 5v2M16 21l3-3-3-3m3 3h-8a5 5 0 01-5-5v-2"/></svg>DESLIZA CON EL DEDO O EL MOUSE · GIRO LIBRE 360°</p>
+<section class="message" aria-label="Dedicatoria"><p class="quote">“Mientras yo esté aquí, tú no serás espectadora.”</p><p class="closing">para que siempre seas protagonista ♡</p></section>
+<p class="support">Una sola página HTML · Gira hacia cualquier lado, sin límite de vueltas</p>
+</main>
+<script>
+/*
+  Beauty Box 3D: WebGL puro. Sin librerías, imágenes, fuentes ni archivos externos.
+  Todos los sólidos tienen geometría cerrada: caras, tapas, bases y volumen.
+  Control de orientación con cuaterniones: giro ilimitado en ambos ejes.
+*/
+(()=>{'use strict';
+const canvas=document.getElementById('scene'),shell=document.getElementById('shell');
+const gl=canvas.getContext('webgl',{antialias:true,alpha:true,premultipliedAlpha:false,powerPreference:'default'});
+if(!gl){const p=document.createElement('p');p.style='position:absolute;inset:40% 10%;text-align:center;color:#a45b80;background:#fffb;padding:18px;border-radius:16px';p.textContent='Este navegador no permite WebGL. Abre el archivo en Chrome actualizado para disfrutar el regalo en 3D.';shell.append(p);return;}
+const vert=`attribute vec3 aP;attribute vec3 aN;attribute vec3 aC;
+uniform mat4 uMVP;uniform mat3 uNormal;varying vec3 vN,vC,vEye;
+void main(){vec4 p=uMVP*vec4(aP,1.);gl_Position=p;vEye=p.xyz;vN=normalize(uNormal*aN);vC=aC;}`;
+const frag=`precision mediump float;varying vec3 vN,vC,vEye;
+void main(){vec3 N=normalize(vN);vec3 L=normalize(vec3(-.55,.84,1.));vec3 L2=normalize(vec3(.85,.40,-.60));
+float d=max(0.,dot(N,L));float d2=max(0.,dot(N,L2));
+vec3 V=normalize(vec3(.0,.0,1.));vec3 H=normalize(L+V);
+float spec=pow(max(0.,dot(N,H)),35.)*.22+pow(max(0.,dot(N,H)),130.)*.16;
+float rim=pow(1.-max(0.,dot(N,V)),3.)*.16;
+vec3 lit=vC*(.50+.50*d+.22*d2)+vec3(1.,.87,.84)*(spec+rim);
+gl_FragColor=vec4(pow(clamp(lit,0.,1.),vec3(.92)),1.);}`;
+const texV=`attribute vec3 aP;attribute vec2 aUV;uniform mat4 uMVP;varying vec2 vUV;void main(){vUV=aUV;gl_Position=uMVP*vec4(aP,1.);}`;
+const texF=`precision mediump float;uniform sampler2D uTex;varying vec2 vUV;void main(){vec4 c=texture2D(uTex,vUV);if(c.a<.06)discard;gl_FragColor=c;}`;
+function shader(type,src){let s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s}
+function program(v,f){const p=gl.createProgram();gl.attachShader(p,shader(gl.VERTEX_SHADER,v));gl.attachShader(p,shader(gl.FRAGMENT_SHADER,f));gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(p));return p}
+const solidP=program(vert,frag),textP=program(texV,texF);
+const SP={p:gl.getAttribLocation(solidP,'aP'),n:gl.getAttribLocation(solidP,'aN'),c:gl.getAttribLocation(solidP,'aC'),mvp:gl.getUniformLocation(solidP,'uMVP'),normal:gl.getUniformLocation(solidP,'uNormal')};
+const TP={p:gl.getAttribLocation(textP,'aP'),uv:gl.getAttribLocation(textP,'aUV'),mvp:gl.getUniformLocation(textP,'uMVP'),sampler:gl.getUniformLocation(textP,'uTex')};
+const color=(s)=>{if(Array.isArray(s))return s;const x=s.replace('#','');return [parseInt(x.slice(0,2),16)/255,parseInt(x.slice(2,4),16)/255,parseInt(x.slice(4,6),16)/255]};
+const c={rose:color('#de83a8'),blush:color('#f0b3c8'),light:color('#ffd8e6'),dark:color('#a94972'),shell:color('#f5aac7'),gold:color('#d7af6a'),goldL:color('#ffe1a3'),ivory:color('#fff2dd'),plum:color('#59314e'),rasp:color('#ae305b'),pink:color('#da749b'),peach:color('#e8a18e'),cream:color('#f6d6c1'),silver:color('#f7f0ed'),glass:color('#eec5d0'),shadow:color('#b884a3')};
+function tint(k,f){let col=color(k);return col.map(v=>Math.min(1,Math.max(0,v*f)))}
+let verts=[],norms=[],cols=[],uverts=[],uvs=[],texGroups=[];
+const I=()=>[1,0,0,0,1,0,0,0,1,0,0,0];let stack=[I()];
+function tr(v,m){return [v[0]*m[0]+v[1]*m[3]+v[2]*m[6]+m[9],v[0]*m[1]+v[1]*m[4]+v[2]*m[7]+m[10],v[0]*m[2]+v[1]*m[5]+v[2]*m[8]+m[11]]}
+function mul(a,b){let o=I();for(let i=0;i<3;i++)for(let j=0;j<3;j++)o[3*j+i]=a[i]*b[3*j]+a[3+i]*b[3*j+1]+a[6+i]*b[3*j+2];o[9]=a[0]*b[9]+a[3]*b[10]+a[6]*b[11]+a[9];o[10]=a[1]*b[9]+a[4]*b[10]+a[7]*b[11]+a[10];o[11]=a[2]*b[9]+a[5]*b[10]+a[8]*b[11]+a[11];return o}
+function local(x=0,y=0,z=0,rx=0,ry=0,rz=0){let ax=rx*Math.PI/180,ay=ry*Math.PI/180,az=rz*Math.PI/180,sa=Math.sin(ax),ca=Math.cos(ax),sb=Math.sin(ay),cb=Math.cos(ay),sc=Math.sin(az),cc=Math.cos(az);return [cc*cb,sc*cb,-sb,cc*sb*sa-sc*ca,sc*sb*sa+cc*ca,cb*sa,cc*sb*ca+sc*sa,sc*sb*ca-cc*sa,cb*ca,x,y,z]}
+function enter(x=0,y=0,z=0,rx=0,ry=0,rz=0){stack.push(mul(stack[stack.length-1],local(x,y,z,rx,ry,rz)))}
+function leave(){stack.pop()}
+function normal(v){const m=stack[stack.length-1],x=v[0]*m[0]+v[1]*m[3]+v[2]*m[6],y=v[0]*m[1]+v[1]*m[4]+v[2]*m[7],z=v[0]*m[2]+v[1]*m[5]+v[2]*m[8],l=Math.hypot(x,y,z)||1;return [x/l,y/l,z/l]}
+function tri(a,b,d,n,col){let m=stack[stack.length-1],C=color(col),N=normal(n);for(const q of [a,b,d]){verts.push(...tr(q,m));norms.push(...N);cols.push(...C)}}
+function quad(a,b,d,e,n,col){tri(a,b,d,n,col);tri(a,d,e,n,col)}
+function box(w,h,d,col){let x=w/2,y=h/2,z=d/2;let shades=[1,0.79,1.11,.86,1.16,.78];let C=color(col);function shade(i){return C.map(v=>Math.min(1,v*shades[i]))}
+quad([-x,-y,z],[x,-y,z],[x,y,z],[-x,y,z],[0,0,1],shade(0));
+quad([x,-y,-z],[-x,-y,-z],[-x,y,-z],[x,y,-z],[0,0,-1],shade(1));
+quad([-x,-y,-z],[-x,-y,z],[-x,y,z],[-x,y,-z],[-1,0,0],shade(3));
+quad([x,-y,z],[x,-y,-z],[x,y,-z],[x,y,z],[1,0,0],shade(2));
+quad([-x,y,z],[x,y,z],[x,y,-z],[-x,y,-z],[0,1,0],shade(4));
+quad([-x,-y,-z],[x,-y,-z],[x,-y,z],[-x,-y,z],[0,-1,0],shade(5));}
+function partBox(x,y,z,w,h,d,col,rx=0,ry=0,rz=0){enter(x,y,z,rx,ry,rz);box(w,h,d,col);leave()}
+function cylinder(r,h,col,rTop=r,N=28){let C=color(col);for(let i=0;i<N;i++){const a=i*2*Math.PI/N,b=(i+1)*2*Math.PI/N,mid=(a+b)/2;
+let B0=[r*Math.cos(a),-h/2,r*Math.sin(a)],B1=[r*Math.cos(b),-h/2,r*Math.sin(b)],T0=[rTop*Math.cos(a),h/2,rTop*Math.sin(a)],T1=[rTop*Math.cos(b),h/2,rTop*Math.sin(b)];const nn=[Math.cos(mid), (r-rTop)/h,Math.sin(mid)],cc=C.map(v=>Math.min(1,v*(.95+.09*Math.cos(a-.7))));quad(B1,B0,T0,T1,nn,cc);
+tri([0,h/2,0],T1,T0,[0,1,0],tint(C,1.12));tri([0,-h/2,0],B0,B1,[0,-1,0],tint(C,.78));}}
+function tube(x,y,z,r,h,col,rTop=r,rx=0,ry=0,rz=0){enter(x,y,z,rx,ry,rz);cylinder(r,h,col,rTop);leave()}
+function sphere(rx,ry,rz,col,lat=12,seg=24){const C=color(col);for(let j=0;j<lat;j++){let u0=Math.PI*j/lat,u1=Math.PI*(j+1)/lat;for(let i=0;i<seg;i++){let v0=i*2*Math.PI/seg,v1=(i+1)*2*Math.PI/seg;const pt=(u,v)=>[rx*Math.sin(u)*Math.cos(v),ry*Math.cos(u),rz*Math.sin(u)*Math.sin(v)];const a=pt(u0,v0),b=pt(u1,v0),d=pt(u1,v1),e=pt(u0,v1);const nn=(p)=>{const t=[p[0]/(rx*rx),p[1]/(ry*ry),p[2]/(rz*rz)],l=Math.hypot(...t)||1;return t.map(x=>x/l)};let m=stack[stack.length-1];for(let [p,q,r] of [[a,b,d],[a,d,e]])for(let v of [p,q,r]){verts.push(...tr(v,m));norms.push(...normal(nn(v)));cols.push(...C)};}}}
+function ball(x,y,z,rx,ry,rz,col){enter(x,y,z);sphere(rx,ry,rz,col);leave()}
+function bevelBox(w,h,d,r,col){let x=w/2,z=d/2;const ring=[[-x+r,-z],[x-r,-z],[x,-z+r],[x,z-r],[x-r,z],[-x+r,z],[-x,z-r],[-x,-z+r]];const C=color(col);for(let i=0;i<8;i++){let a=ring[i],b=ring[(i+1)%8],nn=[(a[0]+b[0])/2,0,(a[1]+b[1])/2],nlen=Math.hypot(nn[0],nn[2])||1;quad([a[0],-h/2,a[1]],[b[0],-h/2,b[1]],[b[0],h/2,b[1]],[a[0],h/2,a[1]],[nn[0]/nlen,0,nn[2]/nlen],C);tri([0,h/2,0],[a[0],h/2,a[1]],[b[0],h/2,b[1]],[0,1,0],tint(C,1.15));tri([0,-h/2,0],[b[0],-h/2,b[1]],[a[0],-h/2,a[1]],[0,-1,0],tint(C,.8));}}
+function bevel(x,y,z,w,h,d,r,col,rx=0,ry=0,rz=0){enter(x,y,z,rx,ry,rz);bevelBox(w,h,d,r,col);leave()}
+function torus(R,r,col,N=32,M=9){let C=color(col);for(let j=0;j<M;j++){let b0=j*2*Math.PI/M,b1=(j+1)*2*Math.PI/M;for(let i=0;i<N;i++){let a0=i*2*Math.PI/N,a1=(i+1)*2*Math.PI/N;let pt=(a,b)=>[(R+r*Math.cos(b))*Math.cos(a),r*Math.sin(b),(R+r*Math.cos(b))*Math.sin(a)];let a=pt(a0,b0),b=pt(a1,b0),d=pt(a1,b1),e=pt(a0,b1);let n=[Math.cos((a0+a1)/2)*Math.cos((b0+b1)/2),Math.sin((b0+b1)/2),Math.sin((a0+a1)/2)*Math.cos((b0+b1)/2)];quad(a,b,d,e,n,C)}}}
+// Coloured closed box, with an interior tray, rounded rails and a removable side lid.
+const W=5.08,D=2.94,H=1.06,wall=.13;
+bevel(0,.13,0,W,.26,D,.16,c.dark);
+bevel(0,.255,0,W-.12,.10,D-.12,.12,c.rose);
+bevel(0,.315,0,W-.33,.065,D-.33,.10,c.light);
+partBox(0,.66,D/2-wall/2,W,.88,wall,c.rose);
+partBox(0,.66,-D/2+wall/2,W,.88,wall,c.rose);
+partBox(-W/2+wall/2,.66,0,wall,.88,D-wall*2,c.dark);
+partBox(W/2-wall/2,.66,0,wall,.88,D-wall*2,c.rose);
+// Interior upper rims and trim
+partBox(0,1.12,D/2-.08,W+.035,.065,.21,c.goldL);
+partBox(0,1.12,-D/2+.08,W+.035,.065,.21,c.goldL);
+partBox(-W/2+.07,1.12,0,.21,.065,D+.005,c.goldL);
+partBox(W/2-.07,1.12,0,.21,.065,D+.005,c.goldL);
+partBox(0,.47,D/2+.011,W-.32,.022,.018,c.light);
+partBox(0,.94,D/2+.014,W-.28,.024,.018,c.light);
+// Side motif, center gold badge: golden ribbon against outer front
+partBox(0,.67,D/2+.075,.30,.9,.017,c.gold);
+partBox(0,.63,D/2+.101,1.12,.43,.03,c.ivory);
+partBox(0,.63,D/2+.123,.99,.31,.02,c.shell);
+partBox(0,.63,D/2+.142,.94,.25,.015,c.ivory);
+// Beaded studs on front
+for(let x of [-2.27,2.27])for(let y of [.34,.95])ball(x,y,D/2+.08,.044,.044,.042,c.goldL);
+// Lid: full volumetric matching slab rested to the left, propped open, decorated both sides
+enter(-3.15,1.13,-.72,20,-20,25);
+bevelBox(4.96,.20,2.90,.15,c.rose);
+partBox(0,.119,0,4.66,.038,2.60,c.goldL);
+bevel(0,.153,0,4.43,.048,2.36,.15,c.ivory);
+bevel(0,.184,0,4.05,.025,1.92,.12,c.light);
+for(let i=0;i<11;i++){let t=(i-5)*.34;ball(t,.208,0,.035,.025,.034,c.ivory)}
+leave();
+// Extra thick decorative paper inside lid (always solid)
+// Cosmetic products: opaque 3D solids with closed sides, bottoms and tops.
+// (1) Eyeliner, tilted black-gold pencil in back right.
+enter(1.35,1.50,-.68,0,0,-13);
+cylinder(.082,2.17,c.plum,.082,20);
+tube(0,.98,0,.084,.17,c.goldL);
+tube(0,-.38,0,.084,.10,c.gold);
+cylinder(.078,.12,c.dark,.008,20);
+leave();
+// (2) Tall mascara with stopper and thick cylindrical body
+enter(.56,1.40,-.84,0,0,6);
+tube(0,-.28,0,.185,1.83,c.plum);
+tube(0,.73,0,.204,.38,c.rose);
+tube(0,.50,0,.21,.09,c.goldL);
+tube(0,-.64,0,.192,.19,c.dark);
+leave();
+// (3) Gold/rose lipstick standing upright with visibly solid lipstick bullet
+enter(-1.89,.90,.64,0,0,-4);
+tube(0,-.27,0,.25,.91,c.rose);
+tube(0,.25,0,.252,.15,c.goldL);
+tube(0,.57,0,.19,.52,c.rasp,.155);
+ball(0,.84,0,.15,.085,.15,c.rasp);
+leave();
+// (4) Small gloss product
+enter(-1.23,1.10,.88,0,0,8);
+tube(0,-.30,0,.16,1.11,c.peach);
+tube(0,.37,0,.17,.30,c.gold);
+tube(0,-.89,0,.16,.08,c.rose);
+leave();
+// (5) Mascara wand metallic mauve
+enter(1.90,1.43,-.92,0,0,-12);
+tube(0,-.22,0,.115,1.54,c.plum);
+tube(0,.67,0,.126,.32,c.goldL);
+tube(0,.85,0,.11,.08,c.ivory);
+leave();
+// (6) Soft sculpted makeup brush with full metallic ferrule and bristles
+enter(2.01,1.42,.13,0,0,16);
+tube(0,-.47,0,.10,1.46,c.plum,.13);
+tube(0,.37,0,.16,.37,c.goldL,.11);
+tube(0,.68,0,.17,.30,c.peach,.28);
+ball(0,.89,0,.25,.34,.24,c.peach);
+leave();
+// (7) Compact perfume, closed rose glass body / opaque multi-faceted geometric bottle
+enter(1.55,.90,.75,0,-17,0);
+bevel(0,-.20,0,.79,.85,.53,.10,c.glass);
+bevel(0,-.24,.275,.68,.64,.025,.05,c.ivory);
+bevel(0,-.26,.294,.50,.41,.018,.03,c.rose);
+tube(0,.31,0,.116,.26,c.gold);
+bevel(0,.54,0,.43,.24,.39,.065,c.rose);
+leave();
+// (8) Powder jar with metallic solid lid and compact body
+enter(.75,.66,.93,0,0,0);
+tube(0,-.08,0,.37,.40,c.ivory);
+tube(0,.20,0,.40,.18,c.gold);
+tube(0,.30,0,.37,.05,c.peach);
+leave();
+// (9) Nail polish bottle, solid, with visible cap
+enter(2.13,.79,.89,0,0,0);
+bevel(0,-.13,0,.42,.54,.40,.085,c.rasp);
+bevel(0,.36,0,.22,.43,.22,.032,c.plum);
+leave();
+// (10) Face foundation bottle in back left
+enter(-2.03,.99,-.62,0,13,-5);
+bevel(0,-.30,0,.65,.83,.44,.12,c.cream);
+bevel(0,.21,0,.37,.20,.31,.045,c.goldL);
+bevel(0,.41,0,.26,.24,.25,.045,c.ivory);
+leave();
+// (11) Eyeshadow palette presented toward front, thick solid back and multiple inset pans
+enter(-.98,1.00,-.83,-13,-10,0);
+bevel(0,-.05,0,1.38,1.04,.20,.075,c.dark);
+bevel(0,.005,.119,1.27,.94,.02,.052,c.shell);
+for(let row=0;row<2;row++)for(let col=0;col<3;col++){
+let x=(col-1)*.38,y=.18-row*.37;
+tube(x,y,.151,.138,.045,[['#e7b4af','#ad6286','#cd8caa'],['#b17c68','#d594ae','#6d3c62']][row][col],.138,90,0,0);
+}
+leave();
+// (12) Blush powder disc in front, open solid compact with hinge and upright mirror
+enter(-.36,.57,.80,0,0,0);
+tube(0,-.07,0,.50,.25,c.gold);
+tube(0,.087,0,.445,.077,c.rose);
+ball(0,.134,0,.38,.027,.38,c.peach);
+enter(0,.45,-.39,62,0,0);
+cylinder(.48,.075,c.goldL,.48,32);
+tube(0,.044,0,.39,.012,c.silver,.39,32);
+leave();leave();
+// (13) Coral highlight pen resting at an angle, solid
+enter(-.80,.60,1.06,7,0,-65);
+tube(0,0,0,.098,1.0,c.goldL);
+tube(0,.30,0,.099,.17,c.rasp);
+leave();
+// (14) Puff + satin bow decoration to fill box without emptiness
+ball(-.78,.48,.18,.37,.12,.30,c.light);
+ball(.04,.44,-.01,.23,.07,.18,c.cream);
+// Tiny gift-like internal separator accent
+partBox(-.05,.34,.0,.065,.08,2.48,c.goldL);
+// THREE-DIMENSIONAL NOTE: a solid card, with text rendered as local bitmap on quad.
+enter(.22,1.70,-1.34,-5,5,-1);
+box(1.77,1.36,.068,c.ivory);
+partBox(0,0,.043,1.64,1.23,.01,c.rose);
+partBox(0,0,.051,1.58,1.17,.012,c.ivory);
+leave();
+// Front banner labels are bitmap textures, not external assets.
+function makeTextTexture(width,height,paint){const cv=document.createElement('canvas');cv.width=width;cv.height=height;const x=cv.getContext('2d');paint(x,width,height);let t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,cv);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);return t}
+function texturedQuad(vertices,texture){let arr=new Float32Array(vertices.flat()), uv=new Float32Array([0,0,1,0,1,1,0,0,1,1,0,1]);const b=gl.createBuffer(),t=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,arr,gl.STATIC_DRAW);gl.bindBuffer(gl.ARRAY_BUFFER,t);gl.bufferData(gl.ARRAY_BUFFER,uv,gl.STATIC_DRAW);texGroups.push({b,t,texture})}
+function facePanel(x,y,z,w,h,texture,rx=0,ry=0,rz=0){const m=local(x,y,z,rx,ry,rz);let pt=(a,b)=>tr([a,b,0],m);texturedQuad([pt(-w/2,-h/2),pt(w/2,-h/2),pt(w/2,h/2),pt(-w/2,-h/2),pt(w/2,h/2),pt(-w/2,h/2)],texture)}
+const cardTexture=makeTextTexture(768,576,(ctx,w,h)=>{
+ctx.fillStyle='#fff8ef';ctx.fillRect(0,0,w,h);
+ctx.strokeStyle='#cba37d';ctx.lineWidth=6;ctx.strokeRect(16,16,w-32,h-32);
+ctx.strokeStyle='#deb8c1';ctx.lineWidth=2;ctx.strokeRect(27,27,w-54,h-54);
+ctx.fillStyle='#a76a83';ctx.textAlign='center';ctx.font='italic 30px Georgia';ctx.fillText('Para ti, con cariño ♡',w/2,90);
+ctx.fillStyle='#713e54';ctx.font='bold 49px Georgia';ctx.fillText('Mientras yo esté aquí,',w/2,228);ctx.fillText('tú no serás',w/2,298);ctx.fillText('espectadora.',w/2,368);
+ctx.strokeStyle='#d8af96';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(245,423);ctx.lineTo(522,423);ctx.stroke();
+ctx.font='italic 28px Georgia';ctx.fillStyle='#b0738b';ctx.fillText('Siempre protagonista ♡',w/2,493);
+});
+facePanel(.22,1.70,-1.34+.062,1.58,1.17,cardTexture,-5,5,-1);
+const brandTexture=makeTextTexture(550,200,(ctx,w,h)=>{ctx.fillStyle='#fff6e9';ctx.fillRect(0,0,w,h);ctx.strokeStyle='#d2af76';ctx.lineWidth=10;ctx.strokeRect(10,10,w-20,h-20);ctx.fillStyle='#a5587e';ctx.textAlign='center';ctx.font='italic bold 70px Georgia';ctx.fillText('BEAUTY BOX',w/2,124);ctx.font='28px Georgia';ctx.fillText('♡  FOR YOU  ♡',w/2,174)});
+facePanel(0,.63,D/2+.157,.89,.225,brandTexture);
+const lidTexture=makeTextTexture(450,200,(ctx,w,h)=>{ctx.fillStyle='#ffe5ee';ctx.fillRect(0,0,w,h);ctx.fillStyle='#b56789';ctx.textAlign='center';ctx.font='italic bold 56px Georgia';ctx.fillText('Special for you',w/2,100);ctx.font='42px Georgia';ctx.fillText('♡ ✦ ♡',w/2,160)});
+// Lid text is already framed by solid decorations. Leave it visually clean when rotating.
+// GPU upload
+function buffer(data){let b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(data),gl.STATIC_DRAW);return b}
+const geo={v:buffer(verts),n:buffer(norms),c:buffer(cols),count:verts.length/3};
+gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.CULL_FACE);gl.clearColor(1,1,1,0);
+function perspective(fov,aspect,near,far){const s=1/Math.tan(fov/2),t=1/(near-far);return [s/aspect,0,0,0,0,s,0,0,0,0,(far+near)*t,-1,0,0,2*far*near*t,0]}
+function mm(a,b){let r=new Array(16).fill(0);for(let j=0;j<4;j++)for(let i=0;i<4;i++)for(let k=0;k<4;k++)r[i+j*4]+=a[i+k*4]*b[k+j*4];return r}
+function quaternion(axis,angle){let l=Math.hypot(...axis)||1,s=Math.sin(angle/2)/l;return [axis[0]*s,axis[1]*s,axis[2]*s,Math.cos(angle/2)]}
+function qmul(a,b){return [a[3]*b[0]+a[0]*b[3]+a[1]*b[2]-a[2]*b[1],a[3]*b[1]-a[0]*b[2]+a[1]*b[3]+a[2]*b[0],a[3]*b[2]+a[0]*b[1]-a[1]*b[0]+a[2]*b[3],a[3]*b[3]-a[0]*b[0]-a[1]*b[1]-a[2]*b[2],a[3]*b[3]-a[0]*b[0]-a[1]*b[1]-a[2]*b[2]]}
+function qmat(q){const [x,y,z,w]=q,x2=x+x,y2=y+y,z2=z+z,xx=x*x2,yy=y*y2,zz=z*z2,xy=x*y2,xz=x*z2,yz=y*z2,wx=w*x2,wy=w*y2,wz=w*z2;return [1-yy-zz,xy+wz,xz-wy,0,xy-wz,1-xx-zz,yz+wx,0,xz+wy,yz-wx,1-xx-yy,0,0,0,0,1]}
+let rotation=qmul(quaternion([1,0,0],.56),quaternion([0,1,0],-.28));
+let dragging=false,lastX=0,lastY=0,vx=0,vy=0,auto=.00012,lastT=0,scale=1;
+function move(dx,dy){const sensitivity=.0086;let yaw=quaternion([0,1,0],dx*sensitivity),pitch=quaternion([1,0,0],dy*sensitivity);rotation=qmul(pitch,qmul(yaw,rotation));let len=Math.hypot(...rotation);rotation=rotation.map(v=>v/len)}
+function down(e){if(e.button!==undefined&&e.button!==0)return;dragging=true;lastX=e.clientX;lastY=e.clientY;vx=0;vy=0;auto=0;shell.classList.add('dragging');shell.setPointerCapture(e.pointerId);schedule();e.preventDefault()}
+function pointerMove(e){if(!dragging)return;let dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;move(dx,dy);vx=Math.max(-28,Math.min(28,dx));vy=Math.max(-28,Math.min(28,dy));schedule();e.preventDefault()}
+function up(e){dragging=false;shell.classList.remove('dragging');try{shell.releasePointerCapture(e.pointerId)}catch(_){}schedule()}
+shell.addEventListener('pointerdown',down);shell.addEventListener('pointermove',pointerMove);shell.addEventListener('pointerup',up);shell.addEventListener('pointercancel',up);
+shell.addEventListener('wheel',e=>{if(e.ctrlKey)return;e.preventDefault();let d=e.deltaY;scale=Math.min(1.45,Math.max(.76,scale-(d>0?.06:-.06)));schedule()},{passive:false});
+shell.addEventListener('dblclick',()=>{rotation=qmul(quaternion([1,0,0],.56),quaternion([0,1,0],-.28));vx=vy=0;scale=1;schedule()});
+let resizeW=0,resizeH=0;function resize(){let dpr=Math.min(window.devicePixelRatio||1,1.8),w=Math.round(canvas.clientWidth*dpr),h=Math.round(canvas.clientHeight*dpr);if(w!==resizeW||h!==resizeH){resizeW=w;resizeH=h;canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h)}}
+function attr(loc,b,size){gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,size,gl.FLOAT,false,0,0)}
+let scheduled=false;function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(draw)}}
+window.addEventListener("resize",schedule);
+function draw(ts){scheduled=false;resize();let dt=Math.min(50,(ts-lastT)||16.6);lastT=ts;
+if(!dragging){if(Math.abs(vx)+Math.abs(vy)>.014){move(vx*dt/16.6,vy*dt/16.6);let damp=Math.pow(.927,dt/16.6);vx*=damp;vy*=damp}else{vx=vy=0; /* calm after release */}}
+const w=canvas.width,h=canvas.height,ratio=w/h;
+let distance=(ratio<.93?13.6:ratio<1.3?12.35:10.7)/scale;
+let view=[1,0,0,0,0,1,0,0,0,0,1,0,.65,-.80,-distance,1];
+let projection=perspective(39*Math.PI/180,ratio,.1,60);
+let m=qmat(rotation);let vp=mm(projection,mm(view,m));
+gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+gl.useProgram(solidP);attr(SP.p,geo.v,3);attr(SP.n,geo.n,3);attr(SP.c,geo.c,3);gl.uniformMatrix4fv(SP.mvp,false,new Float32Array(vp));gl.uniformMatrix3fv(SP.normal,false,new Float32Array([m[0],m[1],m[2],m[4],m[5],m[6],m[8],m[9],m[10]]));gl.drawArrays(gl.TRIANGLES,0,geo.count);
+gl.useProgram(textP);gl.activeTexture(gl.TEXTURE0);gl.uniform1i(TP.sampler,0);gl.uniformMatrix4fv(TP.mvp,false,new Float32Array(vp));gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+for(let group of texGroups){gl.bindTexture(gl.TEXTURE_2D,group.texture);attr(TP.p,group.b,3);attr(TP.uv,group.t,2);gl.drawArrays(gl.TRIANGLES,0,6)}gl.disable(gl.BLEND);
+if(dragging||Math.abs(vx)+Math.abs(vy)>.014)schedule()}
+schedule();
+})();
+</script>
+</body></html>
+
